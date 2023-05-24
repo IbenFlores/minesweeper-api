@@ -2,7 +2,26 @@ class Game < ApplicationRecord
   has_many :cells, dependent: :destroy
   after_create :set_field
 
+  def as_json(options = {})
+    super(only: [:id, :status], methods: :field)
+  end
+
+  def field
+    field_string = self[:field]
+    parse_field_string(field_string)
+  end
+
   private
+
+  def parse_field_string(field_string)
+    rows = field_string.scan(/\[(.*?)\]/)
+    rows.map do |row|
+      row[0].scan(/#<Cell.*?>/).map do |cell_string|
+        cell_id = cell_string.match(/id: (\d+)/)[1].to_i
+        Cell.find(cell_id)
+      end
+    end
+  end
 
   def set_field
     new_field = []
