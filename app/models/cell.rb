@@ -7,7 +7,7 @@ class Cell < ApplicationRecord
     if has_mine && revealed
       game.status = 'lost'
       game.save
-    elsif game.cells.where(revealed: false).count == game.mines
+    elsif game.cells.where(revealed: false).count.zero?
       game.status = 'won'
       game.save
     end
