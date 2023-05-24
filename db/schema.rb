@@ -13,9 +13,9 @@
 ActiveRecord::Schema[7.0].define(version: 2023_05_23_165442) do
   create_table "cells", force: :cascade do |t|
     t.integer "game_id", null: false
-    t.boolean "has_mine"
-    t.boolean "revealed"
-    t.boolean "flagged"
+    t.boolean "has_mine", default: false
+    t.boolean "revealed", default: false
+    t.boolean "flagged", default: false
     t.integer "adjacent_mines"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -25,6 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_23_165442) do
   create_table "games", force: :cascade do |t|
     t.text "field"
     t.string "status"
+    t.integer "size"
+    t.integer "mines"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
