@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_23_165442) do
 
   create_table "games", force: :cascade do |t|
     t.text "field"
-    t.string "status"
+    t.string "status", default: "active"
     t.integer "size"
     t.integer "mines"
     t.datetime "created_at", null: false

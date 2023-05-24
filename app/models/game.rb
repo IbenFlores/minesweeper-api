@@ -3,7 +3,7 @@ class Game < ApplicationRecord
   after_create :set_field
 
   def as_json(options = {})
-    super(only: [:id, :status], methods: :field)
+    super(only: [:id, :status, :mines, :size], methods: :field)
   end
 
   def field
