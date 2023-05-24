@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+This is a challenge app for a RESTful API that implements a minesweeper game
 
 * Ruby version
+3.1.1
 
-* System dependencies
+The purpose of this app is to have a user access it to play the minesweeper game with all of the CRUD actions available such as:
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Accessing all the games
+* Listing an specific game (by it's id)
+* Creating a new game with specific cell and mine quantity
+* Flagging and Revealing Cells
+* Deleting a game
